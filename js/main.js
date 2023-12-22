@@ -25,6 +25,8 @@ function addBookmark() {
     };
     bookmarks.push(bookmark);
     clr();
+    nameInput.classList.remove("is-valid");
+    urlInput.classList.remove("is-valid");
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
     table(bookmarks);
   } else {
