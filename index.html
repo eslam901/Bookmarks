@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="images/bookmark.png" type="image/x-icon">
+    <title>Bookmarks</title>
+  </head>
+
+  <body>
+
+    <section id="bookmark" class=" w-100 p-3">
+      <div class="content rounded-3 w-100 py-3 px-md-5 ">
+        <h1 class="text-center mb-4">Bookmarks</h1>
+        <div class="w-75 mx-auto border-dots py-4 mb-3">
+          <h3 class="text-center py-3 mb-3">
+            <i class="fa-solid fa-bookmark"></i>
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+          </h3>
+          <label for="name">
+            <i class="fa-solid fa-book-bookmark"></i>
+            Site Name
+          </label>
+          <input type="text" id="name" oninput="validateName()" placeholder="Bookmark Name" class="w-100 form-control mt-2 mb-3">
+          <label for="url" >
+            <i class="fa-solid fa-link"></i>
+            Site URL
+          </label>
+          <input type="text" id="url" oninput="validateUrl()" placeholder="Website URL" class="w-100 form-control mt-2 mb-3 ">
+          <button id="add" class="btn btn-primary px-5 mx-auto d-block" onclick="addBookmark()">
+            Supmit
+          </button>
+          <button id="update" class="btn btn-warning px-5 mx-auto d-none" type="submit">
+            Update
+          </button>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <input type="text" id="search" oninput="search()" placeholder="Search by name" class="form-control w-25">
+          <button class="btn btn-light px-5" onclick="undo()">
+            Undo
+          </button>
+        </div>
+        <div class="bg-white mt-3">
+          <table class="table text-center  rounded-2">
+            <thead>
+              <tr>
+                <th scope="col">Index</th>
+                <th scope="col" class="w-50">Name</th>
+                <th scope="col">Visit</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody" class="">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div id="layer" class="position-absolute top-0 end-0 w-100 vh-100 d-flex justify-content-center align-items-center bg-black bg-opacity-25 d-none">
+      <div class="bg-light w-25 p-2 pt-0 rounded-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
+          <button class="btn" onclick="cls()">
+            <i class="fa-solid fa-xmark fa-2x"></i>
+          </button>
+        </div>
+        <h5>
+          Site Name or Url is not valid, Please follow the rules below :
+        </h5>
+        <ul>
+          <li>
+            Site name must contain at least 3 characters
+          </li>
+          <li>
+            Site URL must be a valid one
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+
+</html>
