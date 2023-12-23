@@ -167,6 +167,10 @@ function updateBookmark(x) {
   };
   bookmarks.splice(x, 1, updateBookmark);
   clr();
+  add.classList.remove("d-none");
+  add.classList.add("d-block");
+  update.classList.add("d-none");
+  update.classList.remove("d-block");
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   table(bookmarks);
 }
