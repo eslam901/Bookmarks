@@ -161,6 +161,12 @@ function setFormUpdate(x) {
 }
 
 function updateBookmark(x) {
+  if (
+    /^((http|https):\/\/)?([a-z0-9]+\.)?[a-z0-9]+\.[a-z]+(\/[^\s]*)?$/i.test(
+      urlInput.value
+    ) &&
+    /^\w{3,}/.test(nameInput.value)
+  ) {
   var updateBookmark = {
     nameSite: nameInput.value,
     urlSite: urlInput.value,
@@ -173,11 +179,15 @@ function updateBookmark(x) {
   update.classList.remove("d-block");
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   table(bookmarks);
+  } else {
+    document.getElementById("layer").classList.remove("d-none");
+  }
 }
 
 function undo() {
   var undo = JSON.parse(localStorage.getItem("delete"));
   bookmarks.push(...undo);
+  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   table(bookmarks);
   localStorage.removeItem("delete");
 }
